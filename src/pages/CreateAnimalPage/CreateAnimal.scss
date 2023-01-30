@@ -1,0 +1,31 @@
+.createAnimal{
+    background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url('https://startuanit.net/wp-content/uploads/2021/07/hinh-nen-cho-phoc-soc-26.jpg');
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .form{
+        width: 40%;
+        padding: 20px;
+        // height: 70%;
+        box-shadow: 0 0 2px 4px rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: white;
+       .input{
+        width: 50%;
+        padding: 10px;
+        margin: 10px 0;
+        >label{
+            background-color: #FFAF5A;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            &:hover{
+                background-color: #ea9f50;
+            }
+        }
+       }
+    }
+}

@@ -1,0 +1,60 @@
+.rightBar{
+    flex :3.5;
+    // background-color: green;
+    display: flex;
+   
+    
+    .rightbarWrapper{
+        height: 70vh;
+        width: 100%;
+        background-color: white;
+        box-shadow : 0 0px 16px -8px rgba(0,0,0,0.68);
+
+        margin-top: 5%;
+        margin-right: 20px;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        .top{
+            flex: 1;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            .image{
+                height: 50px;
+                width: 50px;
+                overflow: hidden;
+                border-radius: 50%;
+                img{
+                    width: 100%;
+                    height: 100%;
+
+                }
+            };
+            .name{
+                font-size: 20px;
+                margin-left: 10px;
+            }
+        }
+        .chat{
+            flex: 6;
+            padding:0 10px;
+            overflow-y: scroll;
+        }
+    }
+    .inputText{
+       border-top : 1px solid #ccc;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        input {
+            border:none;
+            width: 90%;
+            // background-color: red;
+            outline :none;
+            padding: 10px;
+            
+        }
+    }
+}
