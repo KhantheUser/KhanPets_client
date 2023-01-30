@@ -41,7 +41,7 @@ function Rightbar() {
       getMessage()
   }
   useEffect(()=>{
-    socket.current = io('wss://khan-pets-socket-5ygecpphp-khantheuser.vercel.app')
+    socket.current = io('wss://khan-pets-socket.vercel.app/')
     socket.current.on('getMessage',(converId)=>{
       console.log(converId);
       getMessage(converId)
