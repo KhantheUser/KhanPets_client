@@ -1,4 +1,7 @@
-.cardItem{
-    // width: 30%;
-    margin-bottom: 20px;
+.cardItem {
+  // width: 30%;
+  margin-bottom: 20px;
+  .MuiCardMedia-img {
+    height: 240px;
+  }
 }

@@ -1,34 +1,33 @@
 .carousel {
-    .slick-arrow{
-        display: none !important;
+  .slick-arrow {
+    display: none !important;
+  }
+  .imageContainer {
+    height: 100vh;
+    .image {
+      height: 100%;
+      width: 100%;
+      background-repeat: no-repeat !important;
+      background-size: 100% 100% !important;
+      position: relative;
     }
-    .imageContainer{
-        height: 90vh;
-        .image{
-            height: 100%;
-            width: 100%;
-            background-repeat: no-repeat !important;
-            background-size:100% 100% !important; 
-            position: relative;
-            
-        }
-    }
-.slick-dots{
+  }
+  .slick-dots {
     bottom: 15px;
-    li{
-        &.slick-active{
-            button{
-                &::before{
-                    color: #FFA500;
-                }
-            }
+    li {
+      &.slick-active {
+        button {
+          &::before {
+            color: #ffa500;
+          }
         }
-        button{
-            &::before{
-                color : gray;
-                font-size : 24px
-            }
+      }
+      button {
+        &::before {
+          color: gray;
+          font-size: 24px;
         }
+      }
     }
-}
+  }
 }

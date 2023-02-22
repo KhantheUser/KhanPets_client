@@ -1,27 +1,28 @@
-
-.productPage{
-    width: 80%;
-    margin: 0 auto;
-    .productWrapper{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        .cardWrapper{
-            margin: 10px 0;
-            width: 22%;
-        }
-        
+.productPage {
+  width: 80%;
+  margin: 0 auto;
+  .productWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .cardWrapper {
+      margin: 10px 0;
+      width: 22%;
     }
-    .pagination{
-        margin:  20px 0;
-        .MuiPagination-ul{
-            display: flex;
-            justify-content: center ;
-        }
+  }
+  .pagination {
+    margin: 20px 0;
+    .MuiPagination-ul {
+      display: flex;
+      justify-content: center;
     }
-    .filter{
-        display: flex;
-        margin: 20px 0;
-        justify-content: space-between
-    }
+  }
+  .filter {
+    display: flex;
+    margin: 20px 0;
+    justify-content: space-between;
+  }
+}
+.MuiPaginationItem-textSecondary.Mui-selected {
+  background-color: #fda401 !important;
 }
