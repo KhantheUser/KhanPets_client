@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./CreateAnimal.scss";
 import { useForm } from "react-hook-form";
 // import { AiFillCamera, AiOutlineShoppingCart } from "react-icons/ai";
+import { Camera, ShopOutlined } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 import Alert from "@material-ui/lab/Alert";
 import {
@@ -139,9 +140,9 @@ function CreateAnimalPage() {
         // onClose={handleCloseModal}
       >
         <div className="h-[500px]  bg-white w-1/2 mx-auto">
-          <h1 className="text-center text-[#fda401] flex items-center justify-center text-2xl font-medium border-b-slate-400 border-2 py-2">
-            Chính sách bán hàng
-            {/* <AiOutlineShoppingCart /> */}
+          <h1 className="text-center space-x-2 text-[#fda401] flex items-center justify-center text-2xl font-medium border-b-slate-400 border-2 py-2">
+            <span>Chính sách bán hàng</span>
+            <ShopOutlined />
           </h1>
           <div className="p-4 space-y-5 h-[70%] overflow-y-scroll">
             {[0, 1, 2, 3, 4, 5, 6, 7].map((para, index) => (
@@ -307,7 +308,7 @@ function CreateAnimalPage() {
                   {img ? (
                     <img src={URL.createObjectURL(img)} alt={"pasd"} />
                   ) : (
-                    <span>s</span>
+                    <Camera />
                   )}
                 </div>
               ))}

@@ -1,7 +1,7 @@
 import { Paper, Zoom } from "@material-ui/core";
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { KeyboardArrowDown } from "@material-ui/icons";
 import ReactPlayer from "react-player";
 const FoodPage = () => {
   const [checked, setChecked] = React.useState(false);
@@ -113,7 +113,7 @@ const FoodPage = () => {
               onClick={() => handleChange(1)}
             >
               Đồ dùng cho chó mèo
-              <MdOutlineKeyboardArrowDown />
+              <KeyboardArrowDown />
             </span>
             <div className={`flex space-x-3 mt-2 ${checked ? "" : "hidden"}`}>
               <Zoom in={checked}>
@@ -173,7 +173,7 @@ const FoodPage = () => {
               onClick={() => handleChange(2)}
             >
               Đồ dùng vệ sinh
-              <MdOutlineKeyboardArrowDown />
+              <KeyboardArrowDown />
             </span>
             <div className={`flex space-x-3 mt-2 ${checked2 ? "" : "hidden"}`}>
               <Zoom in={checked2}>

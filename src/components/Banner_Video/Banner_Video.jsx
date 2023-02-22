@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
-import { AiFillHeart } from "react-icons/ai";
+import { Favorite } from "@material-ui/icons";
 import RipplePlay from "../RipplePlay/RipplePlay";
 import "./Banner_video.scss";
 function Banner_Video() {
@@ -12,7 +12,7 @@ function Banner_Video() {
         <div className="flex items-center mb-10">
           <h2 className="text-white text-2xl ">Một chiếc video thú cưng </h2>
           <span>
-            <AiFillHeart className="text-red-500 text-lg" />
+            <Favorite className="text-red-500 text-lg" />
           </span>
         </div>
         <ReactPlayer

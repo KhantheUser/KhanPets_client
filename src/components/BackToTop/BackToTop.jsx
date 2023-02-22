@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineDown } from "react-icons/ai";
+import { KeyboardArrowDown } from "@material-ui/icons";
 
 export default function BackToTop() {
   const [show, setShow] = useState(false);
@@ -29,7 +29,7 @@ export default function BackToTop() {
         show ? "" : "hidden"
       }`}
     >
-      <AiOutlineDown className="text-lg hover:text-yellow-400  hover:rotate-180 transition-all duration-300" />
+      <KeyboardArrowDown className="text-lg hover:text-yellow-400  hover:rotate-180 transition-all ease-linear duration-300" />
     </div>
   );
 }
