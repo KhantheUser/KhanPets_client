@@ -1,18 +1,25 @@
 import React, { useEffect } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Footer from "../../components/Footer/Footer";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Button from "@material-ui/core/Button";
 import { useParams } from "react-router-dom";
 import "./ProductDetail.scss";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { publicRequest } from "../../util/apiCall";
 import { useNavigate } from "react-router-dom";
+import { createACart } from "../../redux/reducers/cartSlice";
+import Comments from "../../components/SocialPlugin/Comments";
+
 function ProductDetail() {
   const navigate = useNavigate();
   const { productId } = useParams();
   const [productDetail, setProductDetail] = useState({ img: ["0"] });
   const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const { carts } = useSelector((state) => state.cart);
   useEffect(() => {
     const getProductDetail = async () => {
       const res = await publicRequest.get(`animal/${productId}`);
@@ -28,12 +35,22 @@ function ProductDetail() {
       <div className="productDetialWrapper">
         <div className="image">
           <div className="left">
-            <img src={productDetail.img[0]} alt="" />
+            <LazyLoadImage
+              effect="blur"
+              src={productDetail.img[0]}
+              width={"100%"}
+              height={"100%"}
+            />
           </div>
           <div className="right">
             {productDetail.img?.map((img, index) => (
               <div key={index} className="imgWrapper">
-                <img src={img} alt="img" />
+                <LazyLoadImage
+                  effect="blur"
+                  src={img}
+                  width={"100%"}
+                  height={"100%"}
+                />
               </div>
             ))}
           </div>
@@ -82,13 +99,33 @@ function ProductDetail() {
                 >
                   Giá bán :{" "}
                 </p>
-                <b style={{ fontSize: 24, color: "orangered" }}>2000.000</b>
+                <b style={{ fontSize: 24, color: "orangered" }}>
+                  {productDetail?.price} đ
+                </b>
               </div>
             </div>
             <Button
               onClick={() => {
-                if (!currentUser) navigate("/login");
-                navigate("/cart/me/" + currentUser._id);
+                if (!currentUser) {
+                  navigate("/login");
+                } else {
+                  const index = carts.findIndex(
+                    (cart) => cart.product._id === productDetail._id
+                  );
+
+                  if (index !== -1) {
+                    alert("San pham da co trong gio hang");
+                    return;
+                  }
+                  dispatch(
+                    createACart({
+                      productId: productDetail._id,
+                      userId: currentUser._id,
+                    })
+                  );
+                  navigate(`/cart/me/${currentUser._id}`);
+                }
+                // navigate("/cart/me/" + currentUser._id);
               }}
               variant="contained"
               style={{
@@ -105,6 +142,7 @@ function ProductDetail() {
           <div className="map"></div>
         </div>
       </div>
+      <Comments dataHref={productDetail._id} />
       <Footer />
     </div>
   );

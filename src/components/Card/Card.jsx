@@ -19,15 +19,19 @@ const useStyles = makeStyles({
 });
 
 export default function CardItem({ product }) {
-  const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
-  const { carts } = useSelector((state) => state.cart);
 
   const classes = useStyles();
   const navigate = useNavigate();
 
   return (
-    <div className="cardItem">
+    <div className="cardItem hover:-translate-y-2 transition ease-linear hover:shadow-2xl mt-4">
+      <button
+        onClick={() => navigate(`/product-detail/${product._id}`)}
+        className="detail text-white rounded-lg text-lg font-medium hover:bg-white hover:text-[#f1a414]"
+      >
+        Chi tiết
+      </button>
       <Card
         className={classes.root}
         onClick={() => navigate(`/product-detail/${product._id}`)}
@@ -62,7 +66,12 @@ export default function CardItem({ product }) {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button
+          <div className="flex justify-center w-full py-3">
+            <span className="block text-2xl  text-[#f1a414]">
+              {product.price} đ
+            </span>
+          </div>
+          {/* <Button
             size="small"
             color="primary"
             onClick={() => {
@@ -84,14 +93,14 @@ export default function CardItem({ product }) {
             }}
           >
             Buy
-          </Button>
-          <Button
+          </Button> */}
+          {/* <Button
             size="small"
             color="primary"
             onClick={() => navigate(`/product-detail/${product._id}`)}
           >
             Details
-          </Button>
+          </Button> */}
         </CardActions>
       </Card>
     </div>

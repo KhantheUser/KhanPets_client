@@ -10,14 +10,18 @@
       list-style: none;
       padding: 0;
       text-align: center;
-      li {
+      div {
+        padding: 10px 10px;
         border-bottom: 1px solid #ccc;
-
-        padding: 10px 0;
+      }
+      li {
         transition: all 0.4s linear;
+        padding: 4px 0;
         &:hover {
           cursor: pointer;
-          background-color: #999;
+          color: white;
+          background-color: #f1a414;
+          border-radius: 10px;
         }
       }
     }

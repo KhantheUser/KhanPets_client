@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import { deleteMyCart, getMyCarts } from "../../redux/reducers/cartSlice";
 import { useMemo } from "react";
 import Alert from "@material-ui/lab/Alert";
-import { current } from "@reduxjs/toolkit";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -202,7 +202,15 @@ function CartPage() {
               <Fragment key={index}>
                 <Product>
                   <ProductDetail>
-                    <Image src={cart.product?.img[0]} />
+                    {/* <Image src={cart.product?.img[0]} /> */}
+                    <LazyLoadImage
+                      src={cart.product?.img[0]}
+                      style={{
+                        borderRadius: "16px",
+                        width: "200px",
+                        height: "150px",
+                      }}
+                    />
                     <Details>
                       <ProductId>
                         <b>ID :</b> {cart.product?._id}

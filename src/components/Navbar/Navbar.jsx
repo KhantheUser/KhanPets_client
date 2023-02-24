@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <ul className="navbarList">
-        <div className="logoImage">
+        <div className="logoImage cursor-pointer" onClick={() => navigate("/")}>
           <img
             src="https://static.thenounproject.com/png/13421-200.png"
             alt=""
@@ -69,20 +69,30 @@ function Navbar() {
       >
         <div className="modalSlide">
           <ul>
-            <li onClick={() => navigate("/cart/me/" + currentUser._id)}>
-              Giỏ hàng
-            </li>
-            <li onClick={() => navigate("/create")}>Đăng bán</li>
-            <li onClick={() => navigate("/confession")}>Bài đăng</li>
-            <li onClick={() => navigate("/messenger")}>Tin nhắn</li>
-            <li
-              onClick={() => {
-                localStorage.clear();
-                window.location.reload();
-              }}
-            >
-              Đăng xuất
-            </li>
+            <div>
+              <li onClick={() => navigate("/cart/me/" + currentUser._id)}>
+                Giỏ hàng
+              </li>
+            </div>
+            <div>
+              <li onClick={() => navigate("/create")}>Đăng bán</li>
+            </div>
+            <div>
+              <li onClick={() => navigate("/confession")}>Bài đăng</li>
+            </div>
+            <div>
+              <li onClick={() => navigate("/messenger")}>Tin nhắn</li>
+            </div>
+            <div>
+              <li
+                onClick={() => {
+                  localStorage.clear();
+                  window.location.reload();
+                }}
+              >
+                Đăng xuất
+              </li>
+            </div>
           </ul>
         </div>
       </div>
