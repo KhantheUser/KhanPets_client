@@ -25,10 +25,10 @@ const Promises = () => {
     <div className="bg-[#f7f7f7] ">
       <div className="w-9/12 mx-auto py-10">
         <div>
-          <h1 className="text-[42px] font-[500] text-[#333333] text-center">
+          <h1 className="text-[42px] font-[500] text-[#333333] text-center wow animate__animated animate__zoomIn">
             Cam kết
           </h1>
-          <p className="text-[#595959] text-[18px] tracking-widest leading-8 text-center my-5">
+          <p className="text-[#595959] text-[18px] tracking-widest leading-8 text-center my-5 wow animate__animated animate__zoomIn">
             Khan's Pet .Com được định hình là trang web thông tin hàng đầu về
             động vật, thú cưng. Chúng tôi cam kết tất cả nội dung cung cấp trên
             trang đều được trích dịch từ các nguồn web nước ngoài rõ ràng, có ý
@@ -39,13 +39,13 @@ const Promises = () => {
         <div className="py-12 flex">
           {promises.map((pro) => (
             <div key={pro.id} className="w-1/3 ">
-              <div className="flex flex-col  items-center px-6">
+              <div className="flex flex-col  items-center px-6 wow animate__animated animate__zoomIn">
                 <img
                   width="48"
                   height="48"
                   alt=""
                   data-src={pro.image}
-                  class="attachment-full size-full ls-is-cached lazyloaded"
+                  className="attachment-full size-full ls-is-cached lazyloaded"
                   src={pro.image}
                 />
                 <h3 className="text-[#333333] text-[22px] font-medium mb-3 mt-10">

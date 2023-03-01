@@ -31,7 +31,10 @@ function CardList() {
       </p>
       <div className="wrapper">
         {products.slice(0, 6).map((product, index) => (
-          <div key={index} className="wrapperItem">
+          <div
+            key={index}
+            className="wrapperItem wow animate__animated animate__slideInDown"
+          >
             <CardItem product={product} />
           </div>
         ))}

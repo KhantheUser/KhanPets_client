@@ -86,12 +86,19 @@ function Share() {
         </div>
         <hr className="shareHr" />
         <div className="shareImgContainer">
-          <img
-            className="shareImg"
-            src={file && URL.createObjectURL(file)}
-            alt=""
+          {file?.type === "video/mp4" ? (
+            <video src={URL.createObjectURL(file)}></video>
+          ) : (
+            <img
+              className="shareImg"
+              src={file && URL.createObjectURL(file)}
+              alt=""
+            />
+          )}
+          <Cancel
+            className={`shareCancel text-white ${!file && "!hidden"}`}
+            onClick={() => setFile(null)}
           />
-          <Cancel className="shareCancel" onClick={() => setFile(null)} />
         </div>
         <form className="shareBottom" onSubmit={(e) => handleSubmit(e)}>
           <div className="shareOptions">

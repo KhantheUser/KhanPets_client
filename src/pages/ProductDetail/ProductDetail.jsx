@@ -20,10 +20,12 @@ function ProductDetail() {
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const { carts } = useSelector((state) => state.cart);
+  const currentUrl = productDetail._id;
+
   useEffect(() => {
     const getProductDetail = async () => {
       const res = await publicRequest.get(`animal/${productId}`);
-      console.log(res.data.data.data);
+
       setProductDetail(res.data.data.data);
     };
     getProductDetail();
@@ -57,40 +59,42 @@ function ProductDetail() {
         </div>
         <div className="info">
           <div className="infoWrapper mt-6">
-            <h1 className="title text-2xl">{productDetail.name}</h1>
-            <p className="desc mt-3">Mô tả : {productDetail.desc}</p>
+            <h1 className="title text-3xl font-medium">{productDetail.name}</h1>
+            <p className="desc mt-3 tracking-widest text-[#4a4a4a]">
+              Mô tả : {productDetail.desc}
+            </p>
             <div className="infoBuy">
               <div className="infoBuyItem">
                 <p className="infoTitle">Giống loài : </p>
-                <b>{productDetail.generic}</b>
+                <div>{productDetail.generic}</div>
               </div>
               <div className="infoBuyItem">
                 <p className="infoTitle">Tên thú cưng : </p>
-                <b>{productDetail.name}</b>
+                <div>{productDetail.name}</div>
               </div>
               <div className="infoBuyItem">
                 <p className="infoTitle">Tuổi : </p>
-                <b>3</b>
+                <div>{productDetail?.age}</div>
               </div>
               <div className="infoBuyItem">
                 <p className="infoTitle">Giới tính : </p>
-                <b>{productDetail.sex}</b>
+                <div>{productDetail.sex}</div>
               </div>
               <div className="infoBuyItem">
                 <p className="infoTitle">Số lượng : </p>
-                <b>{productDetail.quantity}</b>
+                <div>{productDetail.quantity}</div>
               </div>
               <div className="infoBuyItem">
                 <p className="infoTitle">Tên người bán : </p>
-                <b>{productDetail.user?.username}</b>
+                <div>{productDetail.user?.username}</div>
               </div>
               <div className="infoBuyItem">
                 <p className="infoTitle">Số điện thoại : </p>
-                <b>{productDetail.user?.phone}</b>
+                <div>{productDetail.user?.phone}</div>
               </div>
               <div className="infoBuyItem">
                 <p className="infoTitle">Địa chỉ : </p>
-                <b>{productDetail.address}</b>
+                <div>{productDetail.address}</div>
               </div>
               <div className="infoBuyItem">
                 <p
@@ -99,9 +103,9 @@ function ProductDetail() {
                 >
                   Giá bán :{" "}
                 </p>
-                <b style={{ fontSize: 24, color: "orangered" }}>
+                <div style={{ fontSize: 24, color: "orangered" }}>
                   {productDetail?.price} đ
-                </b>
+                </div>
               </div>
             </div>
             <Button
@@ -135,14 +139,17 @@ function ProductDetail() {
                 fontSize: 24,
                 color: "white",
               }}
+              className="hover:bg-[#ec9e0d] "
             >
               Thêm thú cưng
             </Button>
           </div>
           <div className="map"></div>
         </div>
+        <div className="mt-10">
+          <Comments dataHref={currentUrl} />
+        </div>
       </div>
-      <Comments dataHref={productDetail._id} />
       <Footer />
     </div>
   );

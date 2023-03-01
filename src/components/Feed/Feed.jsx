@@ -7,10 +7,6 @@ import Post from "../Post/Post";
 import { getAllFeeds } from "../../redux/reducers/confessionSlice";
 function Feed({ username }) {
   const { posts } = useSelector((state) => state.confess);
-  //  if(posts.length >0){
-  //    console.log(posts.sort((a,b)=>a.desc-b.desc))
-  //  }
-  console.log(posts);
 
   const dispatch = useDispatch();
   useEffect(() => {

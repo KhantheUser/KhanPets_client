@@ -1,70 +1,76 @@
-.productDetialWrapper{
-    width: 75%;
-    margin: 20px auto ;
-    .info{
+.productDetialWrapper {
+  width: 75%;
+  margin: 20px auto;
+  .info {
+    display: flex;
+    .infoWrapper {
+      flex: 2;
+      .title {
+        color: #ffa500;
+      }
+      .infoBuy {
         display: flex;
-        .infoWrapper{
-            flex: 2;
-            .title{
-                color: #FFA500;
-            }
-            .infoBuy{
-                display:flex;
-                flex-wrap: wrap;
-                margin: 10px 0;
-                .infoBuyItem{
-                    display: flex;
-                    margin: 10px 0;
-                    width: 40%;
-                }
-                .infoTitle{
-                    // margin: 10px 0;
-                width: 120px;
-                    
-                }
-            }
+        flex-wrap: wrap;
+        margin: 10px 0;
+        .infoBuyItem {
+          //   letter-spacing: 0.1em;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 16px;
+          display: flex;
+          margin: 10px 0;
+          width: 40%;
+          > div {
+            font-weight: 500;
+            letter-spacing: 0.1em;
+          }
+          &:last-child {
+            border: none;
+          }
         }
-        .map{
-            flex: 1;
+        .infoTitle {
+          // margin: 10px 0;
+          width: 120px;
         }
+      }
     }
-    .image{
-        display: flex;
-        .left{
-            flex: 1;
-            height: 60vh;
-            
-            padding: 10px 10px 10px 0;
-            img{
-                width: 100%;
-                height: 100%;
-                border-radius: 16px;
-
-            }
-        }
-        .right{
-            flex: 1;
-            
-            padding: 10px 10px 10px 5px;
-            height: 60vh;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-content: space-between;
-            .imgWrapper{
-                // padding: 5px;
-                width: 49%;
-                height: 49%;
-                
-                
-                img{
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 16px;
-                }
-            }
-
-        }
+    .map {
+      flex: 1;
     }
+  }
+  .image {
+    display: flex;
+    .left {
+      flex: 1;
+      height: 60vh;
+
+      padding: 10px 10px 10px 0;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+      }
+    }
+    .right {
+      flex: 1;
+
+      padding: 10px 10px 10px 5px;
+      height: 60vh;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: space-between;
+      .imgWrapper {
+        // padding: 5px;
+        width: 49%;
+        height: 49%;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 16px;
+        }
+      }
+    }
+  }
 }

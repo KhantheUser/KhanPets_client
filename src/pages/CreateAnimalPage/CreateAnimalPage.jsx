@@ -122,7 +122,7 @@ function CreateAnimalPage() {
         className="flex items-center "
         // onClose={handleCloseModal}
       >
-        <div className="h-[500px]  bg-white w-1/2 mx-auto">
+        <div className="h-[500px] outline-none  bg-white w-1/2 mx-auto">
           <h1 className="text-center text-[#fda401] flex items-center justify-center text-2xl font-medium border-b-slate-400 border-2 py-2">
             Đang tải sản phẩm...
           </h1>

@@ -1,6 +1,8 @@
 import React from "react";
 import "./NavbarConfess.scss";
 import { useNavigate } from "react-router-dom";
+import Popover from "@material-ui/core/Popover";
+
 import {
   Person,
   Search,
@@ -11,6 +13,19 @@ import {
 import { useSelector } from "react-redux";
 function NavbarConfess() {
   const { currentUser } = useSelector((state) => state.user);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    console.log("asss");
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
   const navigate = useNavigate();
   return (
     <div className="topbarContainer">
@@ -64,12 +79,37 @@ function NavbarConfess() {
             <span className="topbarIconBadge">3</span>
           </div>
         </div>
-
-        <img
-          src={`${currentUser.avatar || "/assets/images/defaultavatar.jpg"}`}
-          alt=""
-          className="topbarImg"
-        />
+        <div aria-describedby={id} onClick={handleClick}>
+          <img
+            src={`${currentUser.avatar || "/assets/images/defaultavatar.jpg"}`}
+            alt=""
+            className="topbarImg"
+          />
+        </div>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "center",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+        >
+          <div
+            onClick={() => navigate("/")}
+            className="py-2 px-6 cursor-pointer hover:bg-gray-300 transition-all ease-linear duration-300"
+          >
+            Trang chủ
+          </div>
+          <div className="py-2 px-6 cursor-pointer hover:bg-gray-300 transition-all ease-linear duration-300">
+            Đăng xuất
+          </div>
+        </Popover>
       </div>
     </div>
   );

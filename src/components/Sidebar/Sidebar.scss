@@ -1,60 +1,65 @@
-.sidebar{
-    flex : 3;
-    height: calc(100vh - 50px);
-    overflow-y: scroll;
-    position: sticky;
-    top : 50px;
-    .sidebarWrapper{
-        padding:20px;
-        // background-color: yellowgreen;
-        .sidebarList {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            .sidebarListItem{
-                display: flex;
-                align-items: center;
-                margin-bottom: 20px;
-                .sidebarIcon{
-                    margin-right: 15px;
-                }
-            }
+.sidebar {
+  flex: 3;
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+  position: sticky;
+  top: 50px;
+  .sidebarWrapper {
+    padding: 20px;
+    // background-color: yellowgreen;
+    .sidebarList {
+      margin: 0;
+      list-style: none;
+      .sidebarListItem {
+        cursor: pointer;
+        padding: 10px 0;
+        &:hover {
+          background-color: #e8e2e2;
+          border-radius: 8px;
         }
-        .sidebarButton{
-            width: 150px;
-            border:none;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: 500;
+        display: flex;
+        align-items: center;
+        // margin-bottom: 20px;
+        .sidebarIcon {
+          margin-right: 15px;
         }
-        .sidebarHr{
-            margin : 20px 0;
-        }
-        .sidebarFriendList{
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            .sidebarFriend{
-                display: flex;
-                align-items: center;
-                margin-bottom: 15px;
-                .sidebarFriendImg{
-                    height: 32px;
-                    width: 32px;
-                    border-radius: 50%;
-                    object-fit: cover;
-                    margin-right: 10px;
-                }
-            }
-        }
+      }
     }
+    .sidebarButton {
+      width: 150px;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+    .sidebarHr {
+      margin: 20px 0;
+    }
+    .sidebarFriendList {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      .sidebarFriend {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        .sidebarFriendImg {
+          height: 32px;
+          width: 32px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
 }
 ::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
-::-webkit-scrollbar-track{
-    background-color: #f1f1f1;
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
 }
-::-webkit-scrollbar-thumb{
-    background-color: gray;
+::-webkit-scrollbar-thumb {
+  background-color: gray;
 }
