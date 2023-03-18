@@ -10,6 +10,8 @@ import CreateAnimalPage from "./pages/CreateAnimalPage/CreateAnimalPage";
 import Messenger from "./pages/Messenger/Messenger";
 import BackToTop from "./components/BackToTop/BackToTop";
 import FoodPage from "./pages/FoodPage/FoodPage";
+import Success from "./components/Success/Success";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/create" element={<CreateAnimalPage />} />
         <Route path="/messenger" element={<Messenger />} />
+        <Route path="/checkout/success" element={<Success />} />
+        <Route path="/checkout/me" element={<CheckoutPage />} />
       </Routes>
     </BrowserRouter>
   );

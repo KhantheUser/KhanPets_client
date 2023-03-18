@@ -70,6 +70,9 @@ function Navbar() {
         <div className="modalSlide">
           <ul>
             <div>
+              <li onClick={() => navigate("/checkout/me")}>Đơn hàng</li>
+            </div>
+            <div>
               <li onClick={() => navigate("/cart/me/" + currentUser._id)}>
                 Giỏ hàng
               </li>

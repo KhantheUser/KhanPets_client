@@ -234,8 +234,8 @@ const FoodPage = () => {
             >
               Bài viết hữu ích
             </h1>
-            {arrayNews.map((news) => (
-              <div className="flex my-4">
+            {arrayNews.map((news, index) => (
+              <div className="flex my-4" key={index}>
                 <div className="h-10 w-10 mr-2 flex items-center justify-center text-white bg-[#333333]">
                   {news.id}
                 </div>

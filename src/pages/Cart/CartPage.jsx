@@ -9,10 +9,15 @@ import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { useEffect } from "react";
-import { deleteMyCart, getMyCarts } from "../../redux/reducers/cartSlice";
+import {
+  deleteAllCart,
+  deleteMyCart,
+  getMyCarts,
+} from "../../redux/reducers/cartSlice";
 import { useMemo } from "react";
 import Alert from "@material-ui/lab/Alert";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { publicRequest } from "../../util/apiCall";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -139,17 +144,33 @@ const Button = styled.button`
 `;
 
 function CartPage() {
+  const { currentUser } = useSelector((state) => state.user);
+
   const { userId } = useParams();
   const dispatch = useDispatch();
   const { carts } = useSelector((state) => state.cart);
-
-  // const { currentUser } = useSelector((state) => state.user);
+  const handleCheckout = async () => {
+    try {
+      const data = await publicRequest.post("/checkout", {
+        user: {
+          email: currentUser.email,
+          name: currentUser.username,
+          phone: currentUser.phone,
+        },
+        carts,
+      });
+      dispatch(deleteAllCart(currentUser._id));
+      window.location.href = data.data.data.url;
+    } catch (e) {
+      console.log(e);
+    }
+  };
   const total = useMemo(() => {
     return carts?.reduce((total, current) => {
       return total + current.product?.price;
     }, 0);
   }, [carts]);
-  console.log(total);
+
   useEffect(() => {
     dispatch(getMyCarts(userId));
   }, [userId]);
@@ -172,9 +193,6 @@ function CartPage() {
     setOpen(false);
   };
 
-  // useEffect(() => {
-  //   if (!currentUser) navigate("/login");
-  // }, [currentUser]);
   return (
     <Container>
       <Navbar />
@@ -269,6 +287,7 @@ function CartPage() {
                 cursor: `${total === 0 ? "not-allowed" : "pointer"}`,
                 textAlign: "center",
               }}
+              onClick={handleCheckout}
             >
               Checkout
             </button>
