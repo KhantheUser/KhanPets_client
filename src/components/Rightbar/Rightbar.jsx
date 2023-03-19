@@ -41,7 +41,8 @@ function Rightbar() {
     getMessage();
   };
   // useEffect(() => {
-  //   socket.current = io("wss://khan-pets-socket.vercel.app/");
+  //   socket.current = io("http://localhost:8000");
+  //   // socket.current = io("wss://khan-pets-socket.vercel.app/");
   //   socket.current.on("getMessage", (converId) => {
   //     console.log(converId);
   //     getMessage(converId);
