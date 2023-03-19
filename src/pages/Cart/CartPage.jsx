@@ -281,7 +281,7 @@ function CartPage() {
               <SummaryItemPrice>$ {total}</SummaryItemPrice>
             </SummaryItem>
             <button
-              className="w-full rounded-md text-white font-medium text-2xl py-4 hover:opacity-80 transition ease-linear"
+              className="w-full rounded-md text-white font-medium cursor-pointer text-2xl py-4 hover:opacity-80 transition ease-linear"
               style={{
                 backgroundColor: `${total === 0 ? "#ccc" : "#fda401"}`,
                 cursor: `${total === 0 ? "not-allowed" : "pointer"}`,
