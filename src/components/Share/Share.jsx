@@ -44,6 +44,8 @@ function Share() {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setFile(null);
+          setStatus("");
           dispatch(
             createMyPost({
               userId: currentUser._id,
@@ -51,8 +53,6 @@ function Share() {
               desc: status,
             })
           );
-          setFile(null);
-          setStatus("");
         });
       }
     );
@@ -66,7 +66,19 @@ function Share() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    uploadFiles();
+    if (status && !file) {
+      dispatch(
+        createMyPost({
+          userId: currentUser._id,
+          img: "",
+          desc: status,
+        })
+      );
+      setFile(null);
+      setStatus("");
+    } else {
+      uploadFiles();
+    }
   };
   return (
     <div className="share">
@@ -79,6 +91,7 @@ function Share() {
           />
           <input
             type="text"
+            value={status}
             className="shareInput"
             placeholder={`What in your mind , ${currentUser.username} ?`}
             onChange={(e) => handleChangeStatus(e)}
