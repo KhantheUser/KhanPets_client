@@ -1,0 +1,19 @@
+.custom-snackbar::-webkit-scrollbar {
+  width: 15px;
+  height: 8px;
+}
+
+.custom-snackbar::-webkit-scrollbar-track {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.custom-snackbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: slategray;
+  //   outline: 2px solid slategrey;
+}
+
+// .custom-snackbar::-webkit-scrollbar:vertical {
+//   display: none;
+// }

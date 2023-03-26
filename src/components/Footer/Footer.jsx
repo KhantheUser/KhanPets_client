@@ -13,8 +13,8 @@ import {
 const Container = styled.div`
   display: flex;
   border-top: 2px solid #ccc;
-  background-color: #222222;
-  color: white;
+  background-color: #f7f7f7;
+  color: black;
 `;
 const Left = styled.div`
   /* background-color: ${(props) => props.color}; */
@@ -56,7 +56,6 @@ const List = styled.ul`
 const ListItem = styled.li`
   width: 50%;
   margin-bottom: 10px;
-  text-decoration: underline;
 `;
 const Right = styled.div`
   flex: 1;
@@ -130,10 +129,10 @@ function Footer() {
           <Payment src="https://www.braintreepayments.com/images/features/payment-methods/payment-methods.png" />
         </Right>
       </Container>
-      <div className="py-4 bg-[#1b1b1b]">
+      <div className="py-4 bg-[#E8e8e8]">
         <div className=" text-center">
-          <span className="text-white font-medium">Copyright © 2022</span>
-          <span className="text-white font-light">
+          <span className="text-black font-medium">Copyright © 2022</span>
+          <span className="text-black font-light">
             {" "}
             Monspet.com @All rights reserved
           </span>

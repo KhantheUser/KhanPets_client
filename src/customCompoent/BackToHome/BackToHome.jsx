@@ -5,7 +5,7 @@ const BackToHome = () => {
   return (
     <button
       onClick={() => navigate("/")}
-      className="text-white font-semibold absolute top-5  left-5 bg-gradient-to-r p-3 rounded-3xl from-[#fda401] to-red-200 hover:scale-105 transition ease-linear"
+      className="text-white font-semibold absolute top-5  left-5 bg-gradient-to-r p-3 rounded-3xl from-[#a44d01] to-#e99311 hover:scale-105 transition ease-linear"
     >
       Back To Home
     </button>

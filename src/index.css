@@ -13,3 +13,7 @@
 font-family: 'Roboto', sans-serif;
 font-family: 'Urbanist', sans-serif; */
 }
+body::-webkit-scrollbar {
+  /* width: 8px; */
+  height: 12px !important;
+}

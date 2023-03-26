@@ -25,7 +25,7 @@ const Promises = () => {
     <div className="bg-[#f7f7f7] ">
       <div className="w-9/12 mx-auto py-10">
         <div>
-          <h1 className="text-[42px] font-[500] text-[#333333] text-center wow animate__animated animate__zoomIn">
+          <h1 className="text-[42px] font-[500] text-[#343c45] text-center wow animate__animated animate__zoomIn">
             Cam kết
           </h1>
           <p className="text-[#595959] text-[18px] tracking-widest leading-8 text-center my-5 wow animate__animated animate__zoomIn">

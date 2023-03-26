@@ -25,7 +25,10 @@ export default function CardItem({ product }) {
   const navigate = useNavigate();
 
   return (
-    <div className="cardItem hover:-translate-y-2 transition ease-linear hover:shadow-2xl mt-4">
+    <div
+      className="cardItem hover:-translate-y-2 transition ease-linear hover:shadow-2xl mt-4"
+      onClick={() => navigate(`/product-detail/${product._id}`)}
+    >
       <button
         onClick={() => navigate(`/product-detail/${product._id}`)}
         className="detail text-white rounded-lg text-lg font-medium hover:bg-white hover:text-[#f1a414]"
@@ -68,7 +71,7 @@ export default function CardItem({ product }) {
         <CardActions>
           <div className="flex justify-center w-full py-3">
             <span className="block text-2xl  text-[#f1a414]">
-              {product.price} đ
+              {product.price} <span className="underline text-[20px]">đ</span>
             </span>
           </div>
           {/* <Button

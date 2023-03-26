@@ -7,7 +7,7 @@ const About = () => {
         Giới thiệu
       </h1>
       <div className="flex mt-10 ">
-        <div className="w-1/2 pr-50">
+        <div className="w-1/2 pr-12">
           <p className="text-[15px] text-[#4A4A4A] wow animate__animated animate__backInLeft tracking-widest  mb-10  ">
             Khan’s Pet được xây dựng dựa trên tiêu chí là cổng thông tin khổng
             lồ và hoàn toàn miễn phí về các vấn đề xung quanh động vật , đặc

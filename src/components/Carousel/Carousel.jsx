@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import "./Carousel.scss";
 import "../../customCompoent/Button";
 import { Button } from "../../customCompoent/Button";
+import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
+
 function Carousel() {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -51,13 +53,15 @@ function Carousel() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 3000,
+    speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
     // autoplay: true,
+    arrow: true,
+    prevArrow: <ArrowBackIos fontSize="large" />,
+    nextArrow: <ArrowForwardIos fontSize="large" />,
 
     autoplaySpeed: 3000,
-    arrow: true,
   };
   const images = [
     {

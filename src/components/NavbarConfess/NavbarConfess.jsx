@@ -8,7 +8,7 @@ import {
   Search,
   Chat,
   Notifications,
-  ArrowBack,
+  ExitToApp,
 } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 function NavbarConfess() {
@@ -16,7 +16,6 @@ function NavbarConfess() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
-    console.log("asss");
     setAnchorEl(event.currentTarget);
   };
 
@@ -34,8 +33,10 @@ function NavbarConfess() {
           style={{ display: "flex", alignItems: "center" }}
           onClick={() => navigate("/")}
         >
-          <ArrowBack
+          <ExitToApp
+            className="hover:opacity-80"
             style={{
+              transform: "rotate(180deg)",
               fontSize: "24px",
               color: "white",
               marginLeft: "10px",

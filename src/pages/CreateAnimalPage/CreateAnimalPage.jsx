@@ -120,7 +120,10 @@ function CreateAnimalPage() {
         className="flex items-center "
         // onClose={handleCloseModal}
       >
-        <div className="h-[500px] outline-none  bg-white w-1/2 mx-auto">
+        <div
+          className="h-[500px] outline-none  bg-white w-1/2 mx-auto rounded-md "
+          style={{ borderRadius: "20px" }}
+        >
           <h1 className="text-center text-[#fda401] flex items-center justify-center text-2xl font-medium border-b-slate-400 border-2 py-2">
             Đang tải sản phẩm...
           </h1>
@@ -137,7 +140,10 @@ function CreateAnimalPage() {
         className="flex items-center "
         // onClose={handleCloseModal}
       >
-        <div className="h-[500px]  bg-white w-1/2 mx-auto">
+        <div
+          className="h-[500px]  bg-white w-1/2 mx-auto "
+          style={{ borderRadius: "20px", outline: "none", overflow: "hidden" }}
+        >
           <h1 className="text-center space-x-2 text-[#fda401] flex items-center justify-center text-2xl font-medium border-b-slate-400 border-2 py-2">
             <span>Chính sách bán hàng</span>
             <ShopOutlined />
@@ -187,6 +193,8 @@ function CreateAnimalPage() {
               {...register("name", { required: true })}
               fullWidth="100%"
               placeholder="Tên thú cưng"
+              color="secondary"
+              inputProps={{ style: { color: "white" } }}
             />
             {errors.name && (
               <span className="text-red-400">This field is required</span>
@@ -197,11 +205,16 @@ function CreateAnimalPage() {
               {...register("address", { required: true })}
               fullWidth="100%"
               placeholder="Địa chỉ"
+              className="placeholder-red-300 "
+              color="secondary"
+              inputProps={{ style: { color: "white" } }}
             />
           </div>
           <div className="input">
             <FormControl component="fieldset">
-              <FormLabel component="legend">Gender</FormLabel>
+              <FormLabel style={{ color: "white" }} component="legend">
+                Gender
+              </FormLabel>
               <RadioGroup name="gender1">
                 <FormControlLabel
                   {...register("sex", { required: true })}
@@ -223,7 +236,9 @@ function CreateAnimalPage() {
           </div>
           <div className="input">
             <FormControl component="fieldset">
-              <FormLabel component="legend">Chó/Mèo</FormLabel>
+              <FormLabel component="legend" style={{ color: "white" }}>
+                Chó/Mèo
+              </FormLabel>
               <RadioGroup name="gender1">
                 <FormControlLabel
                   {...register("type", { required: true })}
@@ -257,6 +272,8 @@ function CreateAnimalPage() {
               placeholder="Tuổi"
               type="number"
               {...register("age", { required: true })}
+              color="secondary"
+              inputProps={{ style: { color: "white" } }}
             />
             {errors.age && (
               <span className="text-red-400">This field is required</span>
@@ -268,6 +285,8 @@ function CreateAnimalPage() {
               placeholder="Giống chó/mèo"
               type="text"
               {...register("generic", { required: true })}
+              color="secondary"
+              inputProps={{ style: { color: "white" } }}
             />
             {errors.generic && (
               <span className="text-red-400">This field is required</span>
@@ -279,6 +298,8 @@ function CreateAnimalPage() {
               fullWidth="100%"
               placeholder="Mô tả"
               type="text"
+              color="secondary"
+              inputProps={{ style: { color: "white" } }}
             />
             {errors.desc && (
               <span className="text-red-400">This field is required</span>
@@ -290,6 +311,8 @@ function CreateAnimalPage() {
               fullWidth="100%"
               placeholder="Giá bán"
               type="number"
+              color="secondary"
+              inputProps={{ style: { color: "white" } }}
             />
             {errors.price && (
               <span className="text-red-400">This field is required</span>

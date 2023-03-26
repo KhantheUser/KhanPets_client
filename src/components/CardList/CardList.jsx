@@ -23,7 +23,7 @@ function CardList() {
   }, []);
   return (
     <div className="cardList">
-      <h1 className="title text-[42px] font-[500] text-[#333333]">
+      <h1 className="title text-[42px] font-[500] text-[#363c45]">
         Thú cưng được nhiều lượt xem nhất
       </h1>
       <p className="sub-title text-[16px] text-[#4A4A4A] tracking-widest">
@@ -39,15 +39,6 @@ function CardList() {
           </div>
         ))}
       </div>
-      <Button
-        onClick={() => navigate("/products")}
-        content={"Get all..."}
-        styleCss={{
-          background: "transparent",
-          border: "1px solid #fda401",
-          color: "#fda401",
-        }}
-      />
     </div>
   );
 }

@@ -45,11 +45,26 @@ const CheckoutPage = () => {
   }, []);
   console.log(charges);
   return (
-    <div className="h-screen bg-gradient-to-r from-[#FFDCA2] to-[#FF7A7B] flex flex-col justify-center items-center">
+    <div
+      className="h-screen  flex flex-col justify-center items-center"
+      style={{
+        background:
+          "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM4phqQiTMPWhZS7JJcRe7m2eSi_VRa_VZHw&usqp=CAU)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100% 100%",
+      }}
+    >
       <BackToHome />
 
-      <div className=" rounded-md bg-gradient-to-r  from-[#D74177]/20 to-[#FFE983] p-3 px-5">
-        <h1 className="text-white font-semibold text-xl">Thông tin đơn hàng</h1>
+      <div className=" rounded-md  p-3 px-5 relative w-[250px] ">
+        <img
+          className="absolute z-10 -top-28 left-[50%] translate-x-[-50%]"
+          src="/assets/images/board2.png"
+          alt=""
+        />
+        <h1 className="text-white font-semibold leading-10 z-20 top-0 left-[50%] translate-x-[-50%]  text-2xl absolute">
+          Đơn hàng
+        </h1>
       </div>
       <div
         className="w-7/12 h-[600px] overflow-y-scroll mx-auto bg-white relative rounded-md"

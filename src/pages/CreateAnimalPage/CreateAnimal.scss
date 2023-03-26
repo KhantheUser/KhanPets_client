@@ -8,7 +8,12 @@
   width: 100vw;
   justify-content: center;
   align-items: center;
+  .MuiInput-input::placeholder {
+    color: white !important;
+  }
+
   .form {
+    color: white;
     .tryImage {
       border-width: 1px;
       border-color: #ccc;
@@ -16,13 +21,16 @@
     }
     width: 40%;
     padding: 20px;
-    // height: 70%;
-    box-shadow: 0 0 2px 4px rgba(0, 0, 0, 0.08);
+
     border-radius: 16px;
 
-    background-color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
     .input {
       width: 50%;
+      // color: white;
       padding: 10px;
       margin: 10px 0;
       > label {

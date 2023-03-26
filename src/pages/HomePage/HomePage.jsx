@@ -4,9 +4,11 @@ import Banner_Info from "../../components/Banner_Info/Banner_Info";
 import Banner_Video from "../../components/Banner_Video/Banner_Video";
 import CardList from "../../components/CardList/CardList";
 import Carousel from "../../components/Carousel/Carousel";
+import Customers from "../../components/Customers/Customers";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import Promises from "../../components/Promise/Promise";
+import Services from "../../components/Services/Services";
 
 function HomePage() {
   const initFacebookSDK = async () => {
@@ -71,6 +73,8 @@ function HomePage() {
       <About />
       <Promises />
       <CardList />
+      <Services />
+      <Customers />
       <Banner_Video />
       <Banner_Info />
       <Footer />

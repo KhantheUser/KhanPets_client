@@ -69,6 +69,7 @@ const Product = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 16px 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 `;
 const ProductDetail = styled.div`
   flex: 2;
@@ -258,7 +259,7 @@ function CartPage() {
                     <ProductPrice>{cart.product?.price}</ProductPrice>
                   </PriceDetail>
                 </Product>
-                <Hr />
+                {/* <Hr /> */}
               </Fragment>
             ))}
           </Info>
