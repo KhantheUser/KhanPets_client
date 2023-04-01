@@ -135,13 +135,9 @@ function CreateAnimalPage() {
           </div>
         </div>
       </Modal>
-      <Modal
-        open={openModal}
-        className="flex items-center "
-        // onClose={handleCloseModal}
-      >
+      <Modal open={openModal} className="flex items-center ">
         <div
-          className="h-[500px]  bg-white w-1/2 mx-auto "
+          className="h-[550px]  bg-white lg:w-1/2 w-9/12 mx-auto "
           style={{ borderRadius: "20px", outline: "none", overflow: "hidden" }}
         >
           <h1 className="text-center space-x-2 text-[#fda401] flex items-center justify-center text-2xl font-medium border-b-slate-400 border-2 py-2">
@@ -169,7 +165,7 @@ function CreateAnimalPage() {
               }}
               placeholder="I agree"
               type="text"
-              className="border-2 border-[#fda401] mt-2 outline-none p-2 rounded-md"
+              className="border-2 border-[#fda401] my-2 outline-none p-2 rounded-md"
             />
           </div>
         </div>
@@ -185,7 +181,7 @@ function CreateAnimalPage() {
             setOpen(true);
           }
         })}
-        className="form"
+        className="form w-10/12 lg:w-2/5"
       >
         <div className="flex flex-wrap">
           <div className="input">
@@ -194,7 +190,6 @@ function CreateAnimalPage() {
               fullWidth="100%"
               placeholder="Tên thú cưng"
               color="secondary"
-              inputProps={{ style: { color: "white" } }}
             />
             {errors.name && (
               <span className="text-red-400">This field is required</span>
@@ -207,14 +202,11 @@ function CreateAnimalPage() {
               placeholder="Địa chỉ"
               className="placeholder-red-300 "
               color="secondary"
-              inputProps={{ style: { color: "white" } }}
             />
           </div>
           <div className="input">
             <FormControl component="fieldset">
-              <FormLabel style={{ color: "white" }} component="legend">
-                Gender
-              </FormLabel>
+              <FormLabel component="legend">Gender</FormLabel>
               <RadioGroup name="gender1">
                 <FormControlLabel
                   {...register("sex", { required: true })}
@@ -236,9 +228,7 @@ function CreateAnimalPage() {
           </div>
           <div className="input">
             <FormControl component="fieldset">
-              <FormLabel component="legend" style={{ color: "white" }}>
-                Chó/Mèo
-              </FormLabel>
+              <FormLabel component="legend">Chó/Mèo</FormLabel>
               <RadioGroup name="gender1">
                 <FormControlLabel
                   {...register("type", { required: true })}
@@ -273,7 +263,6 @@ function CreateAnimalPage() {
               type="number"
               {...register("age", { required: true })}
               color="secondary"
-              inputProps={{ style: { color: "white" } }}
             />
             {errors.age && (
               <span className="text-red-400">This field is required</span>
@@ -286,7 +275,6 @@ function CreateAnimalPage() {
               type="text"
               {...register("generic", { required: true })}
               color="secondary"
-              inputProps={{ style: { color: "white" } }}
             />
             {errors.generic && (
               <span className="text-red-400">This field is required</span>
@@ -299,7 +287,6 @@ function CreateAnimalPage() {
               placeholder="Mô tả"
               type="text"
               color="secondary"
-              inputProps={{ style: { color: "white" } }}
             />
             {errors.desc && (
               <span className="text-red-400">This field is required</span>
@@ -312,7 +299,6 @@ function CreateAnimalPage() {
               placeholder="Giá bán"
               type="number"
               color="secondary"
-              inputProps={{ style: { color: "white" } }}
             />
             {errors.price && (
               <span className="text-red-400">This field is required</span>
@@ -335,7 +321,7 @@ function CreateAnimalPage() {
               ))}
             </div>
 
-            <label className="text-white" htmlFor="img" component="legend">
+            <label className="text-black" htmlFor="img" component="legend">
               Chọn ảnh
             </label>
 

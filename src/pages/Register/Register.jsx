@@ -17,7 +17,7 @@ const Container = styled.div`
   align-items: center;
 `;
 const Wrapper = styled.div`
-  width: 40%;
+  width: 50%;
   padding: 20px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -25,6 +25,12 @@ const Wrapper = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   border-left: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
+  @media (max-width: 896px) {
+    width: 70%;
+  }
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 const Title = styled.h1`
   font-size: 20px;

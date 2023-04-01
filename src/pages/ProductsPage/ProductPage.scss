@@ -7,7 +7,12 @@
     justify-content: space-between;
     .cardWrapper {
       margin: 10px 0;
-      width: 22%;
+      @media (min-width: 768px) {
+        width: 32%;
+      }
+      @media (min-width: 1024px) {
+        width: 24%;
+      }
     }
   }
   .pagination {

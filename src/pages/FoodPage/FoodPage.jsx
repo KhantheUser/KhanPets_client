@@ -3,9 +3,24 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import { KeyboardArrowDown } from "@material-ui/icons";
 import ReactPlayer from "react-player";
+import useResize from "../../util/useSize";
+import Slider from "react-slick";
 const FoodPage = () => {
   const [checked, setChecked] = React.useState(false);
   const [checked2, setChecked2] = React.useState(false);
+  const size = useResize();
+  const settings = {
+    dots: true,
+    infinite: true,
+
+    speed: 2000,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    // autoplay: true,
+    arrow: false,
+
+    autoplaySpeed: 3000,
+  };
   const handleChange = (param) => {
     if (param === 1) {
       setChecked((prev) => !prev);
@@ -100,7 +115,7 @@ const FoodPage = () => {
       <Navbar />
       <div className="h-36"></div>
       <div className="w-10/12   mx-auto flex">
-        <div className="w-1/4 ">
+        <div className="w-1/4 hidden xmd:block">
           <h1
             className="text-2xl text-center font-light py-2 "
             style={{ borderBottom: "1px solid #ccc" }}
@@ -167,7 +182,7 @@ const FoodPage = () => {
               </Zoom>
             </div>
           </div>
-          <div className="mt-2">
+          <div className="mt-2 ">
             <span
               className=" py-2 text-md font-medium cursor-pointer flex items-center"
               onClick={() => handleChange(2)}
@@ -244,36 +259,70 @@ const FoodPage = () => {
             ))}
           </div>
         </div>
-        <div className="w-3/4 ">
-          <div className="p-10 pt-0">
+        <div className="xmd:w-3/4 w-full">
+          <div className="xmd:p-10 ">
             <ReactPlayer
               controls
               width={"100%"}
-              height={"500px"}
+              // height={"500px"}
               url={
                 "https://www.youtube.com/watch?v=5xFOXL0INQo&ab_channel=PetMart-C%E1%BB%ADaH%C3%A0ngTh%C3%BAC%C6%B0ng"
               }
             />
           </div>
           <div className=" p-10 flex flex-wrap">
-            {arrayProducts.map((product) => (
-              <div className="w-1/4  px-3 mb-5 cursor-pointer hover:scale-105 transition ease-linear">
+            {size > 1024 ? (
+              arrayProducts.map((product, index) => (
                 <div
-                  className="rounded-md  "
-                  style={{ border: "1px solid #ccc" }}
+                  key={index}
+                  className="xl:w-1/4 lg:w-4/12  px-3 mb-5 cursor-pointer hover:scale-105 transition ease-linear"
                 >
-                  <img src={product.imageUrl} alt="" />
-                  <div>
-                    <span className="text-[#33333] block min-h-[100px]">
-                      {product.title}
-                    </span>
-                    <span className="block text-red-500 font-medium text-2xl py-3 text-center">
-                      {product.price} đ
-                    </span>
+                  <div
+                    className="rounded-md  "
+                    style={{ border: "1px solid #ccc" }}
+                  >
+                    <img src={product.imageUrl} alt="" />
+                    <div className="">
+                      <span className="text-[#33333] block h-[100px]">
+                        {product.title.length > 50
+                          ? product.title.slice(0, 50) + "..."
+                          : product.title}
+                      </span>
+                      <span className="block text-red-500 font-medium text-2xl py-3 text-center">
+                        {product.price} đ
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <Slider {...settings} className="w-full">
+                {arrayProducts.map((product, index) => (
+                  <div
+                    key={index}
+                    className="w-full  px-3 mb-5 cursor-pointer hover:scale-105 transition ease-linear"
+                  >
+                    <div
+                      className="rounded-md  "
+                      style={{ border: "1px solid #ccc" }}
+                    >
+                      <img src={product.imageUrl} alt="" />
+                      <div>
+                        <span className="text-[#33333] block h-[100px]">
+                          {product.title.length > 30
+                            ? product.title.slice(0, 30) + "..."
+                            : product.title}
+                        </span>
+                        <span className="block text-red-500 font-medium text-2xl py-3 text-center">
+                          {product.price} đ
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+              // <div>ssss</div>
+            )}
           </div>
         </div>
       </div>

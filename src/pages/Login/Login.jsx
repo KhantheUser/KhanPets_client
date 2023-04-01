@@ -24,6 +24,12 @@ const Wrapper = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   border-left: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
+  @media (max-width: 1180px) {
+    width: 50%;
+  }
+  @media (max-width: 640px) {
+    width: 90%;
+  }
 `;
 const Title = styled.h1`
   font-size: 20px;

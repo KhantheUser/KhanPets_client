@@ -8,35 +8,35 @@ function Banner_Video() {
   return (
     <>
       <div
-        className="p-20 bg-[
+        className=" bg-[
 #fbfcff] flex items-center flex-col relative"
       >
-        {/* <RipplePlay onClick={() => setPlaying(!playing)} /> */}
-        <div className="flex items-center mb-10">
+        <div className="flex items-center my-10">
           <h2 className="text-[#343c35] text-[40px] font-[500] ">
-            Một chiếc video thú cưng{" "}
+            Video thú cưng
           </h2>
           <span>
             <Favorite className="text-red-500 text-lg" />
           </span>
         </div>
-        <ReactPlayer
-          height={600}
-          controls={false}
-          width="80%"
-          playing={playing}
-          playIcon={<RipplePlay />}
-          config={{
-            youtube: {
-              playerVars: { showinfo: 1 },
-            },
-            facebook: {
-              appId: "12345",
-            },
-          }}
-          url="https://www.youtube.com/watch?v=E0XlDLfxkgI&ab_channel=G%C3%A2ug%C3%A2uMeomeo"
-          //   onProgress={handleProgress}
-        />
+        <div className="w-full md:w-10/12">
+          <ReactPlayer
+            height={600}
+            controls={false}
+            width="100%"
+            playing={playing}
+            playIcon={<RipplePlay />}
+            config={{
+              youtube: {
+                playerVars: { showinfo: 1 },
+              },
+              facebook: {
+                appId: "12345",
+              },
+            }}
+            url="https://www.youtube.com/watch?v=E0XlDLfxkgI&ab_channel=G%C3%A2ug%C3%A2uMeomeo"
+          />
+        </div>
       </div>
     </>
   );

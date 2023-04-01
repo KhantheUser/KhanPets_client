@@ -1,13 +1,13 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 import styled from "styled-components";
-import { Delete } from "@material-ui/icons";
+import { Delete, CloseOutlined } from "@material-ui/icons";
 import Snackbar from "@material-ui/core/Snackbar";
 
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
+
 import { useEffect } from "react";
 import {
   deleteAllCart,
@@ -18,7 +18,7 @@ import { useMemo } from "react";
 import Alert from "@material-ui/lab/Alert";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { publicRequest } from "../../util/apiCall";
-
+import Collapse from "@material-ui/core/Collapse";
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px;
@@ -39,7 +39,6 @@ const TopButton = styled.button`
   padding: 10px;
   font-weight: 600;
   cursor: pointer;
-  /* margin: 0 auto; */
   border: ${(props) => props.type === "filled" && "none"};
   background-color: ${(props) =>
     props.type === "filled" ? "black" : "transparent"};
@@ -59,35 +58,38 @@ const Info = styled.div`
   flex: 3;
 `;
 const Summary = styled.div`
-  flex: 1;
+  display: none;
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
   height: 50vh;
+  @media (min-width: 896px) {
+    display: block;
+    flex: 1;
+  }
 `;
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 16px 0;
+  overflow: hidden;
+  width: 100%;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 `;
 const ProductDetail = styled.div`
   flex: 2;
   display: flex;
 `;
-const Image = styled.img`
-  width: 200px;
-  height: 150px;
-  border-radius: 16px;
-`;
+
 const Details = styled.div`
   padding: 10px;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
+  display: none;
+  @media (min-width: 500px) {
+    display: flex;
+  }
 `;
-const ProductName = styled.span``;
-const ProductId = styled.span``;
 
 const PriceDetail = styled.div`
   flex: 1;
@@ -101,19 +103,16 @@ const ProductAmountContainer = styled.div`
   align-items: center;
   margin-bottom: 20px;
 `;
-const ProductAmount = styled.div`
-  font-size: 24px;
-  margin: 5px;
-`;
+
 const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
+  display: none;
+  @media (min-width: 640px) {
+    display: flex;
+  }
 `;
-const Hr = styled.hr`
-  background-color: #eee;
 
-  height: 1px;
-`;
 const SummaryTitle = styled.h1`
   font-weight: 200;
 `;
@@ -127,10 +126,13 @@ const SummaryItem = styled.div`
 const SummaryItemText = styled.span``;
 const SummaryItemPrice = styled.span``;
 const Button = styled.button`
-  display: flex;
+  display: none;
   align-items: center;
   cursor: pointer;
   transition: all 0.4s linear;
+  @media (min-width: 640px) {
+    display: flex;
+  }
 
   &:hover {
     opacity: 0.8;
@@ -146,7 +148,7 @@ const Button = styled.button`
 
 function CartPage() {
   const { currentUser } = useSelector((state) => state.user);
-
+  const [checked, setChecked] = useState([]);
   const { userId } = useParams();
   const dispatch = useDispatch();
   const { carts } = useSelector((state) => state.cart);
@@ -193,7 +195,14 @@ function CartPage() {
 
     setOpen(false);
   };
-
+  const handleSetChecked = (index) => {
+    if (checked.includes(index)) {
+      const filtered = checked.filter((item) => item !== index);
+      setChecked(filtered);
+    } else {
+      setChecked((prev) => [...prev, index]);
+    }
+  };
   return (
     <Container>
       <Navbar />
@@ -209,7 +218,7 @@ function CartPage() {
           <TopButton onClick={() => navigate("/products")}>
             CONTINUE SHOPPING
           </TopButton>
-          <TopTexts>
+          <TopTexts className="hidden sm:block">
             <TopText>Shopping Badge({carts?.length})</TopText>
             <TopText>Your Whislist (0)</TopText>
           </TopTexts>
@@ -219,9 +228,17 @@ function CartPage() {
           <Info>
             {carts?.map((cart, index) => (
               <Fragment key={index}>
-                <Product>
-                  <ProductDetail>
-                    {/* <Image src={cart.product?.img[0]} /> */}
+                <Product
+                  className="relative ssad"
+                  onClick={() => handleSetChecked(index)}
+                >
+                  <span
+                    className="absolute top-0 right-0 sm:hidden "
+                    onClick={() => handleDeleteCart(cart._id)}
+                  >
+                    <CloseOutlined />
+                  </span>
+                  <ProductDetail className="relative">
                     <LazyLoadImage
                       src={cart.product?.img[0]}
                       style={{
@@ -230,13 +247,13 @@ function CartPage() {
                         height: "150px",
                       }}
                     />
-                    <Details>
-                      <ProductId>
+                    <Details className="">
+                      <div>
                         <b>ID :</b> {cart.product?._id}
-                      </ProductId>
-                      <ProductName>
+                      </div>
+                      <div>
                         <b>Name :</b> {cart.product?.name}
-                      </ProductName>
+                      </div>
                       <div>
                         <b>Giống loại :</b> {cart.product?.generic}
                       </div>
@@ -248,7 +265,11 @@ function CartPage() {
                         <b>Giá/đơn vị :</b> {cart.product?.price}
                       </div>
                     </Details>
+                    <div className="ssm:hidden absolute top-[40%] -right-[30%] font-poppins font-[300] ">
+                      Chi tiết
+                    </div>
                   </ProductDetail>
+
                   <PriceDetail>
                     <ProductAmountContainer>
                       <Button onClick={() => handleDeleteCart(cart._id)}>
@@ -259,9 +280,38 @@ function CartPage() {
                     <ProductPrice>{cart.product?.price}</ProductPrice>
                   </PriceDetail>
                 </Product>
-                {/* <Hr /> */}
+
+                <div className={checked.includes(index) ? "" : "hidden"}>
+                  <div>
+                    <b>ID :</b> {cart.product?._id}
+                  </div>
+                  <div>
+                    <b>Name :</b> {cart.product?.name}
+                  </div>
+                  <div>
+                    <b>Giống loại :</b> {cart.product?.generic}
+                  </div>
+                  <div>
+                    <b>Tuổi :</b> {cart.product?.age}
+                  </div>
+
+                  <div>
+                    <b>Giá/đơn vị :</b> {cart.product?.price}
+                  </div>
+                </div>
               </Fragment>
             ))}
+            <button
+              className="w-full mt-2 xmd:hidden rounded-md text-white font-medium cursor-pointer text-2xl py-4 hover:opacity-80 transition ease-linear"
+              style={{
+                backgroundColor: `${total === 0 ? "#ccc" : "#fda401"}`,
+                cursor: `${total === 0 ? "not-allowed" : "pointer"}`,
+                textAlign: "center",
+              }}
+              onClick={handleCheckout}
+            >
+              Checkout
+            </button>
           </Info>
           <Summary>
             <SummaryTitle>SUMMARY TITLE</SummaryTitle>
@@ -295,7 +345,6 @@ function CartPage() {
           </Summary>
         </Bottom>
       </Wrapper>
-      <Footer />
     </Container>
   );
 }

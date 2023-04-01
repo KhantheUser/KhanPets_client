@@ -3,11 +3,12 @@ import React from "react";
 const About = () => {
   return (
     <div className="w-9/12 mx-auto my-10">
-      <h1 className="text-[42px] font-[500] text-[#333333] wow animate__animated animate__backInDown">
+      <div className="h-20 md:hidden"></div>
+      <h1 className="text-[42px] font-[500] text-[#333333] wow animate__animated animate__backInDown  ">
         Giới thiệu
       </h1>
-      <div className="flex mt-10 ">
-        <div className="w-1/2 pr-12">
+      <div className="block lg:flex mt-10 ">
+        <div className="w-full lg:w-1/2 lg:pr-12">
           <p className="text-[15px] text-[#4A4A4A] wow animate__animated animate__backInLeft tracking-widest  mb-10  ">
             Khan’s Pet được xây dựng dựa trên tiêu chí là cổng thông tin khổng
             lồ và hoàn toàn miễn phí về các vấn đề xung quanh động vật , đặc
@@ -22,15 +23,15 @@ const About = () => {
             độc giả những thông tin chính xác và hữu ích nhất.
           </p>
         </div>
-        <div className="w-1/2 wow animate__animated animate__backInRight">
+        <div className="lg:w-1/2 lg:mt-0 lg:block mt-3 wow animate__animated animate__backInRight">
           <img
             src="./assets/images/shaking-hands8.jpg"
             alt=""
-            className="rounded-md"
+            className="rounded-md lg:w-full"
           />
         </div>
       </div>
-      <button className="wow animate__animated animate__backInLeft  px-10 py-3 rounded-[24px] border-solid border-2 border-black hover:scale-105 transition-all ease-linear">
+      <button className="mt-3 lg:mt-0 wow animate__animated animate__backInLeft  px-10 py-3 rounded-[24px] border-solid border-2 border-black hover:scale-105 transition-all ease-linear">
         CHI TIẾT
       </button>
     </div>

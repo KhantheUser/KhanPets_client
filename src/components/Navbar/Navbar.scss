@@ -63,8 +63,6 @@
     }
   }
   .info {
-    // flex: 2;
-    display: flex;
     position: absolute;
     right: 0;
     top: 50%;
@@ -88,7 +86,7 @@
 
     right: 10px;
     top: 50%;
-    display: flex;
+    // display: flex;
     align-items: center;
     span:nth-child(1) {
       color: white;

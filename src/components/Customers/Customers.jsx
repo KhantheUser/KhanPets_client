@@ -11,7 +11,7 @@ const Customers = () => {
             alt=""
             className="wow animate__animated animate__slideInLeft"
           />
-          <div className="absolute bg-[#8b6357] top-[10%] right-[4%] w-[460px] p-12 wow animate__animated animate__slideInRight">
+          <div className="absolute bg-[#8b6357] top-[10%] right-[4%] hidden md:block w-[460px] p-12 wow animate__animated animate__slideInRight">
             <h2 className="font-semibold text-[40px] text-white pb-4">
               Hi, I’m Khan
             </h2>

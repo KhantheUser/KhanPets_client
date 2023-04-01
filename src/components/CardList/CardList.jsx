@@ -5,11 +5,25 @@ import { publicRequest } from "../../util/apiCall";
 import CardItem from "../Card/Card";
 import "../../customCompoent/Button";
 import "./CardList.scss";
-import { Button } from "../../customCompoent/Button";
-import { useNavigate } from "react-router-dom";
+
+import Slider from "react-slick";
+import useResize from "../../util/useSize";
+
 function CardList() {
   const [products, setProduct] = useState([]);
-  const navigate = useNavigate();
+  const size = useResize();
+  const settings = {
+    dots: true,
+    infinite: true,
+
+    speed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    // autoplay: true,
+    arrow: false,
+
+    autoplaySpeed: 3000,
+  };
   useEffect(() => {
     const getAnimals = async () => {
       try {
@@ -30,14 +44,27 @@ function CardList() {
         Được nhiều khách hàng tham khảo , hỏi mua
       </p>
       <div className="wrapper">
-        {products.slice(0, 6).map((product, index) => (
-          <div
-            key={index}
-            className="wrapperItem wow animate__animated animate__slideInDown"
-          >
-            <CardItem product={product} />
-          </div>
-        ))}
+        {size > 768 ? (
+          products.slice(0, 6).map((product, index) => (
+            <div
+              key={index}
+              className="wrapperItem wow animate__animated animate__bounceIn"
+            >
+              <CardItem product={product} />
+            </div>
+          ))
+        ) : (
+          <Slider {...settings} className="w-full">
+            {products.slice(0, 6).map((product, index) => (
+              <div
+                key={index}
+                className="wrapperItem wow animate__animated animate__slideInDown"
+              >
+                <CardItem product={product} />
+              </div>
+            ))}
+          </Slider>
+        )}
       </div>
     </div>
   );

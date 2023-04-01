@@ -81,7 +81,7 @@ function Carousel() {
     },
   ];
   return (
-    <div className="carousel">
+    <div className="carousel hidden sm:block ">
       <Slider {...settings}>
         <div className="imageContainer">
           <div

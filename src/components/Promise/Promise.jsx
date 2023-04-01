@@ -36,7 +36,7 @@ const Promises = () => {
             nhất cho người xem.
           </p>
         </div>
-        <div className="py-12 flex">
+        <div className="py-12  hidden md:flex">
           {promises.map((pro) => (
             <div key={pro.id} className="w-1/3 ">
               <div className="flex flex-col  items-center px-6 wow animate__animated animate__zoomIn">

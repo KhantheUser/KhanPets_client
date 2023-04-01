@@ -9,12 +9,15 @@ import {
   Phone,
   MailOutline,
 } from "@material-ui/icons";
-// import { Mobile } from '../responsive';
+
 const Container = styled.div`
-  display: flex;
+  display: block
   border-top: 2px solid #ccc;
   background-color: #f7f7f7;
   color: black;
+  @media (min-width: 768px) {
+    display: flex
+  }
 `;
 const Left = styled.div`
   /* background-color: ${(props) => props.color}; */

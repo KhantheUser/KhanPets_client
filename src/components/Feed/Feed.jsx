@@ -14,7 +14,7 @@ function Feed({ username }) {
   }, []);
 
   return (
-    <div className="feed">
+    <div className="feed w-full lg:w-1/2">
       <div className="feedWrapper">
         <Share />
 

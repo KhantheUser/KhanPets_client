@@ -46,15 +46,17 @@ function NavbarConfess() {
           />
         </span>
 
-        <span className="logo text-[#f141aa]">Pet Confession</span>
+        <span className="logo text-[#f141aa] hidden lg:block">
+          Pet Confession
+        </span>
       </div>
       <div className="topbarCenter">
-        <div className="searchbar">
+        <div className="searchbar hidden lg:flex">
           <Search className="searchIcon" />
           <input
             type="text"
             placeholder="Search for friend ,post or video"
-            className="searchInput"
+            className="searchInput "
           />
         </div>
       </div>

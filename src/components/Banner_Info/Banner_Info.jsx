@@ -40,11 +40,14 @@ function Banner_Item({ background, title, id }) {
       className={`banner_item wow animate__animated ${
         id % 2 === 0 ? "animate__slideInLeft" : "animate__slideInRight"
       }`}
-      style={{ backgroundImage: `url(${background})` }}
+      style={{
+        backgroundImage: `url(${background})`,
+        boxShadow: "rgba(0, 0, 0, 0.9) 1.95px 1.95px 2.6px",
+      }}
     >
-      <div>
+      <div className="inline-block md:w-5/12">
         <h2>{title}</h2>
-        <p>
+        <p className="md:block hidden">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
           pariatur consequatur totam! Aut impedit magni excepturi?
         </p>

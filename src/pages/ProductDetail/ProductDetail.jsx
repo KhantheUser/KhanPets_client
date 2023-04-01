@@ -12,16 +12,29 @@ import { publicRequest } from "../../util/apiCall";
 import { useNavigate } from "react-router-dom";
 import { createACart } from "../../redux/reducers/cartSlice";
 import Comments from "../../components/SocialPlugin/Comments";
-
+import useResize from "../../util/useSize";
+import Slider from "react-slick";
 function ProductDetail() {
   const navigate = useNavigate();
   const { productId } = useParams();
+  const size = useResize();
   const [productDetail, setProductDetail] = useState({ img: ["0"] });
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const { carts } = useSelector((state) => state.cart);
   const currentUrl = productDetail._id;
+  const settings = {
+    dots: true,
+    infinite: true,
 
+    speed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrow: false,
+
+    autoplaySpeed: 3000,
+  };
   useEffect(() => {
     const getProductDetail = async () => {
       const res = await publicRequest.get(`animal/${productId}`);
@@ -35,16 +48,31 @@ function ProductDetail() {
       <Navbar />
       <div style={{ height: "100px" }}></div>
       <div className="productDetialWrapper">
-        <div className="image">
-          <div className="left">
-            <LazyLoadImage
-              effect="blur"
-              src={productDetail.img[0]}
-              width={"100%"}
-              height={"100%"}
-            />
+        {size > 1024 ? (
+          <div className="image">
+            <div className="left">
+              <LazyLoadImage
+                effect="blur"
+                src={productDetail.img[0]}
+                width={"100%"}
+                height={"100%"}
+              />
+            </div>
+            <div className="right">
+              {productDetail.img?.map((img, index) => (
+                <div key={index} className="imgWrapper">
+                  <LazyLoadImage
+                    effect="blur"
+                    src={img}
+                    width={"100%"}
+                    height={"100%"}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="right">
+        ) : (
+          <Slider {...settings}>
             {productDetail.img?.map((img, index) => (
               <div key={index} className="imgWrapper">
                 <LazyLoadImage
@@ -55,8 +83,8 @@ function ProductDetail() {
                 />
               </div>
             ))}
-          </div>
-        </div>
+          </Slider>
+        )}
         <div className="info">
           <div className="infoWrapper mt-6">
             <h1 className="title text-3xl font-medium">{productDetail.name}</h1>
@@ -144,7 +172,7 @@ function ProductDetail() {
               Thêm thú cưng
             </Button>
           </div>
-          <div className="map"></div>
+          {/* <div className="map"></div> */}
         </div>
         <div className="mt-10">
           <Comments dataHref={currentUrl} />
