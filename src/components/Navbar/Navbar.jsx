@@ -46,7 +46,7 @@ function Navbar() {
       id: 3,
       title: "Tin tức",
       image: "https://cdn-icons-png.flaticon.com/512/2965/2965879.png",
-      navigate: "/confession",
+      navigate: "/news",
     },
     {
       id: 4,
@@ -181,7 +181,7 @@ function Navbar() {
         </li>
         <li
           className="navbarItem hidden md:block"
-          onClick={() => navigate("/confession")}
+          onClick={() => navigate("/news")}
         >
           Tin tức
         </li>

@@ -137,7 +137,7 @@ function Post({ post }) {
         <Fade in={openModal}>
           <div
             ref={divScrollRef}
-            className="h-[90%] w-[45%]  bg-white outline-none rounded-md overflow-y-scroll relative scroll-smooth"
+            className="h-[90%] xmd:w-[45%] w-[80%]  bg-white outline-none rounded-md overflow-y-scroll relative scroll-smooth"
           >
             <span
               className=" right-0 absolute top-2 cursor-pointer "
@@ -221,7 +221,6 @@ function Post({ post }) {
             </div>
             <div className=" p-3 mb-14">
               {comments.map((com, index) => (
-                // <p key={index}>{com.comment}</p>
                 <div className="flex mt-3">
                   <img
                     src={com.avatar}

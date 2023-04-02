@@ -17,6 +17,7 @@ const CartPage = lazy(() => import("./pages/Cart/CartPage"));
 const Register = lazy(() => import("./pages/Register/Register"));
 const Login = lazy(() => import("./pages/Login/Login"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const News = lazy(() => import("./pages/News/News"));
 function App() {
   return (
     <BrowserRouter>
@@ -39,6 +40,7 @@ function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/cart/me/:userId" element={<CartPage />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/news" element={<News />} />
           <Route path="/login" element={<Login />} />
           <Route path="/create" element={<CreateAnimalPage />} />
           <Route path="/messenger" element={<Messenger />} />

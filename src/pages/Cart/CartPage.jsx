@@ -281,7 +281,9 @@ function CartPage() {
                   </PriceDetail>
                 </Product>
 
-                <div className={checked.includes(index) ? "" : "hidden"}>
+                <div
+                  className={checked.includes(index) ? "ssm:hidden" : "hidden"}
+                >
                   <div>
                     <b>ID :</b> {cart.product?._id}
                   </div>

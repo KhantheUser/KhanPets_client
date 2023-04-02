@@ -67,7 +67,7 @@ const CheckoutPage = () => {
                 expandIcon={<ExpandMoreIcon />}
                 id="panel1bh-header"
               >
-                <div className="flex overflow-scroll">
+                <div className="flex overflow-x-scroll">
                   {charge.lines.data.map((item, index) => (
                     <div key={index} className="mr-6 ">
                       <div>
