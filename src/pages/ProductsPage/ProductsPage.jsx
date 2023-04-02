@@ -78,32 +78,16 @@ function ProductsPage() {
             </Select>
           </FormControl>
         </div>
-        <div
-          className="productWrapper"
-          style={{
-            justifyContent: `${
-              products.length % 4 !== 0 ? "flex-start" : "space-between"
-            }`,
-          }}
-        >
+        <div className="productWrapper">
           {products.length === 0 ? (
             <Loading />
           ) : (
             products.map((product, index) => (
-              <div
-                key={index}
-                style={{
-                  margin: `${
-                    products.length % 4 !== 0 ? "10px 18px" : "10px 0px"
-                  }`,
-                }}
-                className="cardWrapper"
-              >
+              <div key={index} className="cardWrapper px-2">
                 <CardItem product={product} />
               </div>
             ))
           )}
-          {/* <Loading/> */}
         </div>
         <div className="pagination">
           <Pagination

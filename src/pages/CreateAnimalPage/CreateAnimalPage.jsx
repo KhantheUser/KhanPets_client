@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./CreateAnimal.scss";
 import { useForm } from "react-hook-form";
-// import { AiFillCamera, AiOutlineShoppingCart } from "react-icons/ai";
+
 import { Camera, ShopOutlined } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 import Alert from "@material-ui/lab/Alert";
@@ -75,9 +75,7 @@ function CreateAnimalPage() {
   const { currentUser } = useSelector((state) => state.user);
   const [data, setData] = useState(null);
   const [modalAdd, setModalAdd] = useState(false);
-  const handleCloseModal = () => {
-    setOpenModal(false);
-  };
+
   const uploadFiles = async (file) => {
     const storage = getStorage();
     const name = new Date().getTime() + file.name;
@@ -115,11 +113,7 @@ function CreateAnimalPage() {
         </Alert>
       </Snackbar>
       <BackToHome />
-      <Modal
-        open={modalAdd}
-        className="flex items-center "
-        // onClose={handleCloseModal}
-      >
+      <Modal open={modalAdd} className="flex items-center ">
         <div
           className="h-[500px] outline-none  bg-white w-1/2 mx-auto rounded-md "
           style={{ borderRadius: "20px" }}
