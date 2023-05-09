@@ -82,9 +82,9 @@ function NavbarConfess() {
             <span className="topbarIconBadge">3</span>
           </div>
         </div>
-        <div aria-describedby={id} onClick={handleClick}>
+        <div aria-describedby={id} onClick={handleClick} className={`${currentUser?._id ? 'block':'hidden'}`}>
           <img
-            src={`${currentUser.avatar || "/assets/images/defaultavatar.jpg"}`}
+            src={`${currentUser?.avatar || "/assets/images/defaultavatar.jpg"}`}
             alt=""
             className="topbarImg"
           />

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Post.scss";
 import { MoreVert } from "@material-ui/icons";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from "timeago.js";
 import Popover from "@material-ui/core/Popover";
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function Post({ post }) {
+  const navigate = useNavigate()
   const inputRef = useRef(null);
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -52,13 +54,12 @@ function Post({ post }) {
     });
   }
   useEffect(() => {
-    setLike(post?.likes.includes(currentUser._id));
+    setLike(post?.likes.includes(currentUser?._id));
     setNumberLike(post?.likes.length);
   }, [post?.likes]);
 
   const dbRef = ref(database);
   const getCommentsFromFireBase = () => {
-    console.log(postId);
     get(child(dbRef, `comments`))
       .then((snapshot) => {
         if (snapshot.exists()) {
@@ -86,6 +87,10 @@ function Post({ post }) {
     setAnchorEl(event.currentTarget);
   };
   const handleLike = async () => {
+    if(!currentUser?._id) {
+      navigate('/login');
+      return;
+    };
     setLike(!like);
     await publicRequest.patch(`/post/${post?._id}`, {
       userId: currentUser._id,
@@ -152,7 +157,7 @@ function Post({ post }) {
                 className="fixed p-3  h-14 rounded-md w-[45%] bg-[#f1f1f1] flex items-center"
               >
                 <img
-                  src={currentUser.avatar}
+                  src={currentUser?.avatar}
                   className="rounded-full h-10 w-10 mr-2"
                   alt=""
                 />
@@ -172,7 +177,7 @@ function Post({ post }) {
                     }
                   }}
                   placeholder="Write your comment"
-                  className="flex-1 py-1 px-3 bg-[#ccc] rounded-2xl outline-none"
+                  className="flex-1 py-1 px-3 bg-[#c7cbcf] rounded-2xl outline-none"
                 />
               </div>
             </div>
@@ -227,7 +232,7 @@ function Post({ post }) {
                     className="h-10 w-10 rounded-full"
                     alt=""
                   />
-                  <div className="ml-2 bg-yellow-100 p-3 rounded-md">
+                  <div className="ml-2 bg-[#f0f2f5] p-3 rounded-md">
                     <span className="font-medium">{com.username}</span>
                     <span className="block">{com.comment}</span>
                   </div>
@@ -240,7 +245,7 @@ function Post({ post }) {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft" onClick={handleSetCurrentChat}>
-            {/* <Link to={`profile/${user.username}`}> */}
+        
 
             <img
               className="postProfileImg"
@@ -249,7 +254,7 @@ function Post({ post }) {
               }`}
               alt=""
             />
-            {/* </Link> */}
+          
             <span className="postUsername ">{post?.userId.username}</span>
             <span className="postDate">{format(post?.createdAt, "en_US")}</span>
           </div>
@@ -257,7 +262,7 @@ function Post({ post }) {
             aria-describedby={id}
             onClick={handleClick}
             className={`postTopRight cursor-pointer  ${
-              currentUser._id === post.userId._id ? "" : "hidden"
+              currentUser?._id === post.userId._id ? "" : "hidden"
             }`}
           >
             <MoreVert className="hover:bg-gray-300 transition  rounded-sm" />
@@ -327,6 +332,10 @@ function Post({ post }) {
           <div
             className="hover:bg-[#ece6e6] rounded-md cursor-pointer px-3 py-1"
             onClick={() => {
+              if(!currentUser?._id){
+                navigate('/login')
+                return;
+              }
               handleOpen();
               setPostId(post?._id);
             }}

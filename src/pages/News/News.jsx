@@ -13,7 +13,6 @@ const News = () => {
         const newsData = await axios.get(
           "https://newsapi.org/v2/everything?q=dog&apiKey=7db22516815c45f782feeac565314be7"
         );
-        console.log(newsData.data.articles);
         setNews(newsData.data.articles);
       } catch (e) {
         console.log(e);

@@ -12,7 +12,7 @@ function ConfessPage() {
       <div className="confessContainer">
         <Sidebar />
         <Feed />
-        {/* <Rightbar/> */}
+  
         <div className="flex-[3.5]"></div>
       </div>
     </div>

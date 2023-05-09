@@ -4,17 +4,14 @@ import {
   RssFeed,
   Chat,
   HelpOutline,
-  VideoLabel,
   PlayCircleOutline,
   Group,
   Bookmark,
-  WorkOffOutlined,
   WorkOutline,
   CalendarToday,
   School,
 } from "@material-ui/icons";
-// import {Users} from '../../dummyData'
-// import CloseFriend from '../closefriend/CloseFriend'
+
 
 function Sidebar() {
   return (

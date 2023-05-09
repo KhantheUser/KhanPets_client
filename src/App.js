@@ -1,6 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Messenger from "./pages/Messenger/Messenger";
-import BackToTop from "./components/BackToTop/BackToTop";
 import { lazy } from "react";
 import { Suspense } from "react";
 import Loading from "./customCompoent/Loading/Loading";
@@ -21,7 +19,6 @@ const News = lazy(() => import("./pages/News/News"));
 function App() {
   return (
     <BrowserRouter>
-      {/* <BackToTop /> */}
       <Suspense
         fallback={
           <div className="h-screen w-screen flex justify-center items-center ">
@@ -43,7 +40,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/login" element={<Login />} />
           <Route path="/create" element={<CreateAnimalPage />} />
-          <Route path="/messenger" element={<Messenger />} />
+         
           <Route path="/checkout/success" element={<Success />} />
           <Route path="/checkout/me" element={<CheckoutPage />} />
         </Routes>

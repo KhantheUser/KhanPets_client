@@ -3,7 +3,6 @@ import "./Share.scss";
 import {
   PermMedia,
   Label,
-  Room,
   EmojiEmotions,
   Cancel,
 } from "@material-ui/icons";
@@ -81,11 +80,11 @@ function Share() {
     }
   };
   return (
-    <div className="share">
+    <div className={`share ${currentUser?._id ? 'block':'hidden'}`}>
       <div className="shareWrapper">
         <div className="shareTop">
           <img
-            src={`${currentUser.avatar || "/assets/images/defaultavatar.jpg"}`}
+            src={`${currentUser?.avatar || "/assets/images/defaultavatar.jpg"}`}
             alt=""
             className="shareProfile"
           />
@@ -93,7 +92,7 @@ function Share() {
             type="text"
             value={status}
             className="shareInput"
-            placeholder={`What in your mind , ${currentUser.username} ?`}
+            placeholder={`What in your mind , ${currentUser?.username} ?`}
             onChange={(e) => handleChangeStatus(e)}
           />
         </div>
